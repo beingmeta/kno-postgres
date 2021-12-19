@@ -3,7 +3,7 @@
 #ifndef KNO_PQPRIMS_H
 #define KNO_PQPRIMS_H 1
 #ifndef KNO_PQPRIMS_H_INFO
-#define KNO_PQPRIMS_H_INFO "include/kno/sql.h"
+#define KNO_PQPRIMS_H_INFO "kno-postgres/pqprims.h"
 #endif
 
 static struct KNO_SQLDB_HANDLER postgres_handler;

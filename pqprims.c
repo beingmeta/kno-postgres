@@ -1,7 +1,7 @@
 /* -*- Mode: C; Character-encoding: utf-8; -*- */
 
-/* odbc.c
-   This implements Kno bindings to odbc.
+/* pqprims.c
+   This implements Kno bindings to the Postgres C library
    Copyright (C) 2007-2019 beingmeta, inc.
    Copyright (C) 2020-2021 beingmeta, LLC
 */
