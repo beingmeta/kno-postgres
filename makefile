@@ -6,6 +6,7 @@ KNOBUILD          = knobuild
 prefix		::= $(shell ${KNOCONFIG} prefix)
 libsuffix	::= $(shell ${KNOCONFIG} libsuffix)
 CMODULES	::= $(DESTDIR)$(shell ${KNOCONFIG} cmodules)
+SRCMODULES	::= $(DESTDIR)$(shell ${KNOCONFIG} installmods)
 KNO_VERSION	::= $(shell ${KNOCONFIG} version)
 KNO_MAJOR	::= $(shell ${KNOCONFIG} major)
 KNO_MINOR	::= $(shell ${KNOCONFIG} minor)
@@ -79,12 +80,12 @@ TAGS: pqprims.c
 
 # Other targets
 
-${CMODULES}:
+${CMODULES} ${SRCMODULES}:
 	install -d $@
 
-install: build ${CMODULES}
+install: build ${CMODULES} ${SRCMODULES}
 	${SUDO} u8_install_shared ${LIBNAME}.${libsuffix} ${CMODULES} ${FULL_VERSION} "${SYSINSTALL}"
-	${SUDO} $(SYSINSTALL) postgres.scm $(shell knoconfig installmods)
+	${SUDO} $(SYSINSTALL) postgres.scm ${SRCMODULES}
 
 clean:
 	rm -f *.o *.${libsuffix}
